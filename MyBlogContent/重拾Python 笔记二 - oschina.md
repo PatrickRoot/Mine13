@@ -1,5 +1,6 @@
-#python 2
-
+#重拾Python 笔记二
+######20130506
+***
 1. `class clss_name(parent_class):`定义一个父类为parent_calss的类class_name。
 2. 在类中定义的函数，第一个参数必需是self，这样在函数内就可以调用类，相当于其他语言中的this。
 3. 在类中可以定义有一个`__init__()`方法，相当于其他语言中的构造方法，同样，它的第一个参数必需是self。

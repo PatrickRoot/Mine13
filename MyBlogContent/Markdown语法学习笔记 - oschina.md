@@ -1,3 +1,6 @@
+#重拾Python 笔记三
+######20130505
+***
 本文内容参考了[Markdown 语法说明 (简体中文版)][mk]，使用[MarkPad][]和[MarkdownPad 2][]编写完成。
 #一、
 Markdown兼容HTML语法，所以直接输入的HTML语句，会按HTML代码解析
