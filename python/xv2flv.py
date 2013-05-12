@@ -1,17 +1,17 @@
-# -*- coding: cp936 -*-
-#½«±¾Ä¿Â¼ÏÂµÄxv¸ñÊ½ÎÄ¼ş×ª»»Îªflv¸ñÊ½
+# -*- coding: utf-8 -*-
+#å°†æœ¬ç›®å½•ä¸‹çš„xvæ ¼å¼æ–‡ä»¶è½¬æ¢ä¸ºflvæ ¼å¼
 import os
 
 oldfileslist=os.listdir(os.getcwd())
-if os.path.exists('×ªÂëºóÎÄ¼ş')==False:
-    os.mkdir('×ªÂëºóÎÄ¼ş')
+if os.path.exists(u'è½¬ç åæ–‡ä»¶')==False:
+    os.mkdir(u'è½¬ç åæ–‡ä»¶')
 
 for oldfilename in oldfileslist:
     filename=os.path.splitext(oldfilename)
     if filename[1]!='.xv':
         continue
     oldfile = open(oldfilename,'rb')
-    newfilename = '×ªÂëºóÎÄ¼ş\\'+filename[0]+'.flv'
+    newfilename = u'è½¬ç åæ–‡ä»¶\\'+filename[0]+'.flv'
     newfile = open(newfilename,'wb')
 
     temp=oldfile.read()
@@ -36,5 +36,5 @@ for oldfilename in oldfileslist:
 
     newfile.close()
     oldfile.close()
-    filefinish='%s ÒÑ¾­Íê³É'% filename[0]
+    filefinish=u'%s å·²ç»å®Œæˆ'% filename[0]
     print filefinish

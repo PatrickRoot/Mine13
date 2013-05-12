@@ -1,18 +1,18 @@
-# -*- coding: cp936 -*-
-#列出当前目录下所有mp4格式文件列表
+# -*- coding: utf-8 -*-
+#鍒楀嚭褰撳墠鐩綍涓嬫墍鏈塵p4鏍煎紡鏂囦欢鍒楄〃
 import os
 fileslist=os.listdir(os.getcwd())
-newfile = open("目录.txt",'w')
+newfile = open(u"鐩綍.txt",'w')
 i=0
 lenght=len(fileslist)
 tempfile=""
 for everyfile in fileslist:
     i=i+1
     filename=os.path.splitext(everyfile)
-    if filename[1]!='.mp4':
-        print "%d/%d 已经完成"% (i,lenght)
+    if filename[1]=='.mp4':
+        print u"%d/%d 宸茬粡瀹屾垚"% (i,lenght)
         continue
     newfile.write(filename[0]+"\n")
-    print "%d/%d 已经完成"% (i,lenght)
+    print u"%d/%d 宸茬粡瀹屾垚"% (i,lenght)
 newfile.close()
-print "完成"
+print u"瀹屾垚"

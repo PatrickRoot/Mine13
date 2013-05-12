@@ -1,20 +1,20 @@
-# -*- coding: cp936 -*-
+# -*- coding: utf-8 -*-
 import os
 
 fatherpath=os.getcwd()
 
-menu=open('目录(含子目录).txt','w')
+menu=open(u'鐩綍(鍚瓙鐩綍).txt','w')
 
 for root,dirs,files in os.walk(fatherpath):
-    menu.write(root+'：\n')
-    menu.write('文件夹：\n')
+    menu.write(root+'锛歕n')
+    menu.write(u'鏂囦欢澶癸細\n')
     if dirs!=[]:
         for d in dirs:
             menu.write(d)
             menu.write('\n')
     else:
         menu.write('kong\n')
-    menu.write('\n文件：\n')
+    menu.write(u'\n鏂囦欢锛歕n')
     if files!=[]:
         for f in files:
             menu.write(f)
