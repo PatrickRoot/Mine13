@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 #将本目录下的xv格式文件转换为flv格式
-import os
 
-oldfileslist=os.listdir(os.getcwd())
+#/本次更新解决中文乱码问题，应该彻底了
+import os
+#添加这行代码，应该让代码的编码统一为unicode了
+currepath=unicode(os.getcwd(),"utf-8")
+oldfileslist=os.listdir(currepath)
 if os.path.exists(u'转码后文件')==False:
     os.mkdir(u'转码后文件')
 
@@ -11,7 +14,7 @@ for oldfilename in oldfileslist:
     if filename[1]!='.xv':
         continue
     oldfile = open(oldfilename,'rb')
-    newfilename = u'转码后文件\\'+filename[0]+'.flv'
+    newfilename = u'转码后文件/'+filename[0]+'.flv'
     newfile = open(newfilename,'wb')
 
     temp=oldfile.read()

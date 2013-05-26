@@ -1,0 +1,5 @@
+1、unicode字符串有两种模式
+
+    u"abc\\abc"
+    ur"abc\\abc"
+2、在命令行中，`_`类似matlab中的ans
