@@ -132,9 +132,14 @@ public class MainLoop extends JFrame
 	
 	private void searchTrigger()
 	{
+		String queryID=jID.getText();
 		String queryName = jName.getText();
 		String queryDate = jDate.getText();
 		String queryMark = jMark.getText();
+		if (queryID == null)
+		{
+			queryID = "";
+		}
 		if (queryName == null)
 		{
 			queryName = "";
@@ -147,8 +152,8 @@ public class MainLoop extends JFrame
 		{
 			queryMark = "";
 		}
-		QueryDatabase.queryFilm(queryName, queryMark, queryDate, content);
-		String queryString = queryName + " : " + queryDate + " : " + queryMark;
+		QueryDatabase.queryFilm(queryID,queryName, queryMark, queryDate, content);
+		String queryString = queryID+":"+queryName + " : " + queryDate + " : " + queryMark;
 		resultLabel.setText("查询“" + queryString + "”共有" + content.size()
 				+ "条结果。");
 		jTable.invalidate();
@@ -210,6 +215,8 @@ public class MainLoop extends JFrame
 		if (isSucc)
 		{
 			resultLabel.setText("增加成功！");
+			QueryDatabase.queryFilm("",queryName, queryMark, queryDate, content);
+			jTable.invalidate();
 		} else
 		{
 			resultLabel.setText("增加失败！");
@@ -286,6 +293,8 @@ public class MainLoop extends JFrame
 		if (isSucc)
 		{
 			resultLabel.setText("修改成功！");
+			QueryDatabase.queryFilm(queryID,queryName, queryMark, queryDate, content);
+			jTable.invalidate();
 		} else
 		{
 			resultLabel.setText("修改失败！");

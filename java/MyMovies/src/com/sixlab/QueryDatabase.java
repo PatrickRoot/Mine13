@@ -139,7 +139,7 @@ public class QueryDatabase
 	 * @param queryDate 要被查询的观影日期（全部或部分）
 	 * @param output 查询的结果存储在此Vector<Vector<String>>中，以便JTable更新。
 	 */
-	public static void queryFilm(String queryName,
+	public static void queryFilm(String queryID,String queryName,
 			String queryMark, String queryDate, Vector<Vector<String>> output)
 	{
 		String sql = "select * from saw ";
@@ -160,6 +160,17 @@ public class QueryDatabase
 			sql += "saw.InDate Like('%" + queryDate + "%')";
 			i++;
 		}
+		if (!queryID.equals(""))
+		{
+			if (i != 0)
+			{
+				sql += " And ";
+			}else {
+				sql+=" where ";
+			}
+			sql += "saw.ID Like('%" + queryID + "%')";
+			i++;
+		}
 		if (!queryMark.equals(""))
 		{
 			if (i != 0)
@@ -170,7 +181,6 @@ public class QueryDatabase
 			}
 			sql += "saw.Remark Like('%" + queryMark + "%')";
 		}
-		System.out.println(sql);
 		queryBySql(output, sql);
 	}
 	
