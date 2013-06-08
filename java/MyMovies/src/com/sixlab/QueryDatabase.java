@@ -121,7 +121,8 @@ public class QueryDatabase
 		try
 		{
 			stmt = conn.createStatement();
-			output = (stmt.executeUpdate(sql) != 0);
+			output = (stmt.executeUpdate(sql) >= 0);
+			//TODO 上面一句有问题
 		} catch (Exception e)
 		{
 			e.printStackTrace();

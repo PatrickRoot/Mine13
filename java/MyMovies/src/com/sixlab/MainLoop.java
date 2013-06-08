@@ -64,6 +64,10 @@ public class MainLoop extends JFrame
 		jDate = new JTextField();
 		jMark = new JTextField();
 		jID = new JTextField();
+		jName.setColumns(7);
+		jDate.setColumns(7);
+		jMark.setColumns(7);
+		jID.setColumns(7);
 		searchButton = new JButton("搜索");
 		insertButton = new JButton("插入");
 		updateButton = new JButton("修改");

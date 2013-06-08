@@ -1,0 +1,55 @@
+
+
+
+
+
+
+
+		// 下面做些测试
+		
+		// File afFile = subfile[20];
+		// BufferedImage ainImage = ImageIO.read(afFile);
+		// System.out.println(afFile.getName());
+		// System.out.println(ainImage.getHeight());
+		// System.out.println(ainImage.getWidth());
+		
+		// 获取RGB分量值 67 125 113
+		// int x = ainImage.getRGB(20, 20);
+		//
+		// int r = (x & 0xff0000) >> 16;
+		// int g = (x & 0xff00) >> 8;
+		// int b = x & 0xff;
+
+
+
+			// ImageInputStream aImageIn = ImageIO.createImageInputStream(file);
+			// ImageOutputStream aImageOut = ImageIO
+			// .createImageOutputStream(newFile);
+			//
+			// BufferedImage inImage=ImageIO.read(aImageIn);
+			// ImageInputStream secin=ImageIO.createImageInputStream(inImage);
+			//
+			// byte[] buffer=new byte[1000];
+			// int length=0;
+			// while (-1!=(length=secin.read(buffer)))
+			// {
+			// aImageOut.write(buffer, 0, length);
+			// }
+			
+			// ImageInputStream aImageIn = ImageIO.createImageInputStream(file);
+			// BufferedImage inImage = ImageIO.read(aImageIn);
+			// ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			// ImageIO.write(inImage, "jpg", bos);
+			// ImageOutputStream aImageOut = ImageIO
+			// .createImageOutputStream(newFile);
+			// InputStream inlast=new ByteArrayInputStream(bos.toByteArray());
+			//
+			//
+			// byte[] buffer = new byte[1000];
+			// int length = 0;
+			// while (-1 != (length = last.read(buffer)))
+			// {
+			// aImageOut.write(buffer, 0, length);
+			// }
+			
+			// ImageIO.write(inImage, "jpg", newFile);

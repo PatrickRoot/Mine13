@@ -22,9 +22,11 @@ public class ConvertImage
 			// 转换后的灰度图像和原来图像同名，位于gray目录下
 			String filename = file.getName();
 			File newFile = new File("gray/" + filename);
+			File newFile5 = new File("gray/5" + filename);
 			
 			// 读取图像
 			BufferedImage inImage = ImageIO.read(file);
+			BufferedImage outImage=new BufferedImage(inImage.getWidth(), inImage.getHeight(), 5);
 			
 			// 遍历图片每一个点，对其进行转换
 			for (int h = 0; h < inImage.getHeight(); h++)
@@ -35,9 +37,9 @@ public class ConvertImage
 					int rgb = inImage.getRGB(w, h);
 					
 					// 获得RGB三个分量的值，并将其乘以灰度转换的系数
-					int newr = (int) (((rgb & 0xff0000) >> 16) * 0.299f);
-					int newg = (int) (((rgb & 0xff00) >> 8) * 0.587f);
-					int newb = (int) ((rgb & 0xff) * 0.114f);
+					int newr = (int) (((rgb & 0xff0000) >> 16) * 0.3f);
+					int newg = (int) (((rgb & 0xff00) >> 8) * 0.589f);
+					int newb = (int) ((rgb & 0xff) * 0.111f);
 					
 					// 得到灰度值
 					int newrgb = (int) ((newr + newg + newb));
@@ -52,11 +54,13 @@ public class ConvertImage
 					
 					// setRGB设置新的灰度图像的值
 					inImage.setRGB(w, h, finalrgb);
+					outImage.setRGB(w, h, finalrgb);
 				}
 			}
 			
 			// 将修改后的文件保存
 			ImageIO.write(inImage, "jpg", newFile);
+			ImageIO.write(outImage, "jpg", newFile5);
 		}
 		
 		long endTime = System.currentTimeMillis();
