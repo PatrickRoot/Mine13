@@ -3,6 +3,13 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+""tab键四个空格
+set tabstop=4
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+""显示行号
+set nu
 set diffexpr=MyDiff()
 function MyDiff()
   let opt = '-a --binary '
