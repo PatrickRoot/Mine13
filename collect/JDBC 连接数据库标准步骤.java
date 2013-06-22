@@ -39,3 +39,65 @@ public class TestJDBC {
         }
     }
 }
+
+
+	/**
+	 * 加载org.sqlite.JDBC数据库驱动，并创建数据库连接，然后将此连接返回。
+	 * @return 数据库的连接
+	 */
+	private static Connection connSqlite()
+	{
+		Connection conn = null;
+		try
+		{
+			Class.forName("org.sqlite.JDBC");
+			conn = DriverManager.getConnection("jdbc:sqlite:sawmovies.db");
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		return conn;
+	}
+	
+	/**
+	 * 用于关闭数据库连接
+	 * @param conn 已建立连接的数据库连接
+	 * @param stmt 数据库Statement
+	 * @param rt 数据库ResultSet
+	 */
+	private static void closeConn(Connection conn, Statement stmt, ResultSet rt)
+	{
+		
+		if (conn != null)
+		{
+			try
+			{
+				conn.close();
+			} catch (SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		if (stmt != null)
+		{
+			try
+			{
+				stmt.close();
+			} catch (SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		if (rt != null)
+		{
+			try
+			{
+				rt.close();
+			} catch (SQLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+

@@ -1,0 +1,18 @@
+**************************************************struts2 struts.xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+**************************************************struts2 输入校验
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE validators PUBLIC
+    "-//Apache Struts//XWork Validator 1.0.2//EN"
+    "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+
+**************************************************Hibernate hbm 映射文件
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+

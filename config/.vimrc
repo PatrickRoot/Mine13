@@ -92,3 +92,9 @@ function QuoteDelim(char)
         return a:char.a:char."\<Esc>i"
     endif
 endf
+
+""""""""""""""""""""""""""""""""""""""""
+""20130618
+""修改备份文件的路径，让其统一到一个目录
+""""""""""""""""""""""""""""""""""""""""
+set backupdir=E:/other/vimBackup

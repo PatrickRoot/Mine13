@@ -4,7 +4,7 @@ PostgreSQL Native JDBC Driver
 JDBC URL: jdbc:postgresql://<host>:<port>/<database_name>
 默认端口5432
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    MySQL
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    MySQL（验证）
 mysql-connector-java
 驱动程序包名：驱动程序类名: com.mysql.jdbc.Driver
 JDBC URL: jdbc:mysql://<host>:<port>/<database_name>[?user=user][&password=password][&useUnicode=true][&characterEncoding=GBK]

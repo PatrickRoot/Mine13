@@ -33,54 +33,47 @@ public class MainLoop extends JFrame
 	private JPanel					jupJPanel;
 	private JPanel					jcenJPanel;
 	private JPanel					jdownpJPanel;
-	private JLabel					nameLabel;
-	private JLabel					dateLabel;
-	private JLabel					markLabel;
 	private JTextField				jName;
 	private JTextField				jDate;
 	private JTextField				jMark;
-	private JButton					searchButton;
+	private JButton					resetButton;
+	private JButton					updateButton;
 	private JButton					insertButton;
+	private JButton					searchButton;
 	private JTable					jTable;
 	private JLabel					resultLabel;
 	private JTextField				jID;
-	private JButton					updateButton;
 	
 	public MainLoop()
 	{
 		this.setTitle("我的电影查询");
 		this.setBounds(450, 150, 450, 600);
 		Container container = this.getContentPane();
-		jupJPanel = new JPanel(new GridLayout(2, 5));
+		jupJPanel = new JPanel(new GridLayout(2, 4));
 		jcenJPanel = new JPanel();
 		jdownpJPanel = new JPanel();
-		
-		// 上部
-		nameLabel = new JLabel("名字");
-		dateLabel = new JLabel("日期");
-		markLabel = new JLabel("备注");
 		
 		jName = new JTextField();
 		jDate = new JTextField();
 		jMark = new JTextField();
 		jID = new JTextField();
-		jName.setColumns(7);
-		jDate.setColumns(7);
-		jMark.setColumns(7);
-		jID.setColumns(7);
-		searchButton = new JButton("搜索");
-		insertButton = new JButton("插入");
+		jName.setColumns(10);
+		jDate.setColumns(10);
+		jMark.setColumns(10);
+		jID.setColumns(10);
 		updateButton = new JButton("修改");
-		jupJPanel.add(nameLabel);
-		jupJPanel.add(dateLabel);
-		jupJPanel.add(markLabel);
+		insertButton = new JButton("插入");
+		resetButton = new JButton("重置");
+		searchButton = new JButton("搜索");
+		
 		jupJPanel.add(jID);
-		jupJPanel.add(searchButton);
 		jupJPanel.add(jName);
 		jupJPanel.add(jDate);
 		jupJPanel.add(jMark);
 		jupJPanel.add(updateButton);
 		jupJPanel.add(insertButton);
+		jupJPanel.add(resetButton);
+		jupJPanel.add(searchButton);
 		
 		// 中部
 		title = new Vector<String>();
@@ -132,11 +125,24 @@ public class MainLoop extends JFrame
 				updateTrigger();
 			}
 		});
+		
+		resetButton.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				jID.setText("");
+				jName.setText("");
+				jMark.setText("");
+				jDate.setText("");
+				jID.requestFocus();
+			}
+		});
 	}
 	
 	private void searchTrigger()
 	{
-		String queryID=jID.getText();
+		String queryID = jID.getText();
 		String queryName = jName.getText();
 		String queryDate = jDate.getText();
 		String queryMark = jMark.getText();
@@ -156,8 +162,10 @@ public class MainLoop extends JFrame
 		{
 			queryMark = "";
 		}
-		QueryDatabase.queryFilm(queryID,queryName, queryMark, queryDate, content);
-		String queryString = queryID+":"+queryName + " : " + queryDate + " : " + queryMark;
+		QueryDatabase.queryFilm(queryID, queryName, queryMark, queryDate,
+				content);
+		String queryString = queryID + ":" + queryName + " : " + queryDate
+				+ " : " + queryMark;
 		resultLabel.setText("查询“" + queryString + "”共有" + content.size()
 				+ "条结果。");
 		jTable.invalidate();
@@ -219,12 +227,14 @@ public class MainLoop extends JFrame
 		if (isSucc)
 		{
 			resultLabel.setText("增加成功！");
-			QueryDatabase.queryFilm("",queryName, queryMark, queryDate, content);
+			QueryDatabase.queryFilm("", queryName, queryMark, queryDate,
+					content);
 			jTable.invalidate();
 		} else
 		{
 			resultLabel.setText("增加失败！");
 		}
+		jID.requestFocus();
 		this.pack();
 	}
 	
@@ -234,14 +244,15 @@ public class MainLoop extends JFrame
 		String queryName = jName.getText();
 		String queryDate = jDate.getText();
 		String queryMark = jMark.getText();
-		String queryID=jID.getText();
+		String queryID = jID.getText();
 		
-		if (queryID==null|queryID.equals(""))
+		if (queryID == null | queryID.equals(""))
 		{
 			resultLabel.setText("严重警告：没有ID无法修改信息，请一定要输入ID！！！");
 			this.pack();
 			return;
-		}else {
+		} else
+		{
 			for (int i = 0; i < queryID.length(); i++)
 			{
 				char c = queryID.charAt(i);
@@ -265,7 +276,7 @@ public class MainLoop extends JFrame
 		{
 			queryMark = "";
 		}
-
+		
 		if (queryDate.equals(""))
 		{
 			Date today = new Date();
@@ -293,11 +304,13 @@ public class MainLoop extends JFrame
 			}
 		}
 		
-		boolean isSucc = QueryDatabase.updateFilm(queryID, queryName, queryMark, queryDate);
+		boolean isSucc = QueryDatabase.updateFilm(queryID, queryName,
+				queryMark, queryDate);
 		if (isSucc)
 		{
 			resultLabel.setText("修改成功！");
-			QueryDatabase.queryFilm(queryID,queryName, queryMark, queryDate, content);
+			QueryDatabase.queryFilm(queryID, queryName, queryMark, queryDate,
+					content);
 			jTable.invalidate();
 		} else
 		{
