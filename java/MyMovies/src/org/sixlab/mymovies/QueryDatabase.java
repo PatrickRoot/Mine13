@@ -1,4 +1,4 @@
-package com.sixlab;
+package org.sixlab.mymovies;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -216,7 +216,11 @@ public class QueryDatabase
 	{
 		boolean isSuc = false;
 		String sql = "update saw set ";
-		sql += ("InDate='"+queryDate+"'");
+		sql += ("Id='"+queryID+"'");
+		if (!queryDate.equals(""))
+		{
+			sql += (",InDate='"+queryDate+"'");
+		}
 		if (!queryName.equals(""))
 		{
 			sql += (",Name='"+queryName+"'");
