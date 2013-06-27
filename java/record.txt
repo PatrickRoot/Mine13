@@ -1,0 +1,7 @@
+1、学习Java过程中，刚学到AWT的时候，制作了一个SixlabCalculator，花了一天时间
+2、学习Java过程中，刚学完TCP/IP协议的时候，制作了MyQQ，花了两三天时间
+3、学习完Java Se，正在学习Java Web开发的时候，因个人需要，制作了MyMovies，花了一天多时间
+4、Java Web刚学完的时候，正在做毕业设计，因为毕业设计的需要，制作了convertimage，加上看Java图像处理方面的内容，总共花了半天多时间。
+5、后来一次闲来无事，因个人需要，制作了MyShow，基于MyMovies改的，界面比MyMovies人性化，逻辑更加清晰，花了几个小时
+6、正在学习Struts+Hibernate+Spring的时候，因为看视频时候的需要，做作了RenameFile，总共就花费了半个小时左右。
+7、Struts+Hibernate+Spring学习完，制作了一个调用腾讯微博热门微博的SSH框架的小型web程序，在此过程中，发现了需求，做作了MyCode，花费时间半天左右
