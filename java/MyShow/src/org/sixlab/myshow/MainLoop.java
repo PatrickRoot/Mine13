@@ -114,7 +114,7 @@ public class MainLoop extends JFrame
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
-				tableDoubleClicked(e);
+				tableRightClicked(e);
 			}
 		});
 		
@@ -155,6 +155,7 @@ public class MainLoop extends JFrame
 				QueryDatabase.queryFilm("", "", "", "", "", "正看", "", content);
 				jLabel1.setText("共有" + content.size() + "部正在看的电视剧。");
 				jTable1.invalidate();
+				jTable1.repaint();
 				pack();
 			}
 		});
@@ -192,7 +193,7 @@ public class MainLoop extends JFrame
 		this.pack();
 	}
 	
-	private void tableDoubleClicked(MouseEvent e)
+	private void tableRightClicked(MouseEvent e)
 	{
 		if (e.isMetaDown())
 		{
@@ -269,6 +270,7 @@ public class MainLoop extends JFrame
 				+ " : " + queryTV;
 		jLabel1.setText("查询“" + queryString + "”共有" + content.size() + "条结果。");
 		jTable1.invalidate();
+		jTable1.repaint();
 		this.pack();
 	}
 	
@@ -345,6 +347,7 @@ public class MainLoop extends JFrame
 			QueryDatabase.queryFilm("", queryName, querySeries, queryEpisode,
 					queryTV, queryMark, queryDate, content);
 			jTable1.invalidate();
+			jTable1.repaint();
 		} else
 		{
 			jLabel1.setText("增加失败！");
@@ -464,6 +467,7 @@ public class MainLoop extends JFrame
 			QueryDatabase.queryFilm(queryID, queryName, querySeries,
 					queryEpisode, queryTV, queryMark, queryDate, content);
 			jTable1.invalidate();
+			jTable1.repaint();
 		} else
 		{
 			jLabel1.setText("修改失败！");

@@ -217,7 +217,8 @@ public class MainLoop extends JFrame
 		{
 			jLabel.setText("更新信息：" + id + " 成功。");
 			DBHandle.getTitles(titleList);
-			jList.setListData((String[]) titleList.toArray(new String[0]));
+			jList.setListData(titleList.toArray(new String[0]));
+			jList.repaint();
 		} else
 		{
 			jLabel.setText("更新信息：" + id + " 失败！");
@@ -256,7 +257,8 @@ public class MainLoop extends JFrame
 			jLabel.setText("搜索信息：" + searchContent + " 失败！");
 			DBHandle.getTitles(titleList);
 		}
-		jList.setListData((String[]) titleList.toArray(new String[0]));
+		jList.setListData(titleList.toArray(new String[0]));
+		jList.repaint();
 	}
 	
 	protected void copyTrigger()
@@ -278,7 +280,8 @@ public class MainLoop extends JFrame
 		{
 			jLabel.setText("插入信息：" + title + " 成功。");
 			DBHandle.getTitles(titleList);
-			jList.setListData((String[]) titleList.toArray(new String[0]));
+			jList.setListData(titleList.toArray(new String[0]));
+			jList.repaint();
 		} else
 		{
 			jLabel.setText("插入信息：" + title + " 失败！");
@@ -311,7 +314,8 @@ public class MainLoop extends JFrame
 			{
 				jLabel.setText("删除信息：" + id + " 成功。");
 				DBHandle.getTitles(titleList);
-				jList.setListData((String[]) titleList.toArray(new String[0]));
+				jList.setListData(titleList.toArray(new String[0]));
+				jList.repaint();
 			} else
 			{
 				jLabel.setText("删除信息：" + id + " 失败！");

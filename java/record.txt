@@ -5,3 +5,5 @@
 5、后来一次闲来无事，因个人需要，制作了MyShow，基于MyMovies改的，界面比MyMovies人性化，逻辑更加清晰，花了几个小时
 6、正在学习Struts+Hibernate+Spring的时候，因为看视频时候的需要，做作了RenameFile，总共就花费了半个小时左右。
 7、Struts+Hibernate+Spring学习完，制作了一个调用腾讯微博热门微博的SSH框架的小型web程序，在此过程中，发现了需求，做作了MyCode，花费时间半天左右
+8、Struts+Hibernate+Spring学习完，制作了一个调用腾讯微博热门微博的SSH框架的小型web程序，花费一天左右时间。
+9、MyYunDisk，做于2013-06-28，早就想做了，忽然想到了，没什么大用，基于MyMovies改的，花了一个多小时。

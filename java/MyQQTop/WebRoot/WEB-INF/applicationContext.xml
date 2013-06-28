@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/myqqtop</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>shikbg6six</value>
+		</property>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>org/sixlab/myqqtop/bean/Content.hbm.xml</value>
+				<value>org/sixlab/myqqtop/bean/Rank.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="ContentDao" class="org.sixlab.myqqtop.dao.impl.ContentDaoImpl" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+
+	<bean id="ListService" class="org.sixlab.myqqtop.service.impl.ListServiceImpl" scope="singleton">
+		<property name="dao" ref="ContentDao"></property>
+	</bean>
+
+	<bean id="ListAction" class="org.sixlab.myqqtop.action.ListAction" scope="prototype">
+		<property name="service" ref="ListService"></property>
+	</bean>
+
+	<bean id="UpdateDBService" class="org.sixlab.myqqtop.service.impl.UpdateDBServiceImpl" scope="singleton">
+		<property name="dao" ref="ContentDao"></property>
+	</bean>
+
+	<bean id="UpdateDBAction" class="org.sixlab.myqqtop.action.UpdateDBAction" scope="prototype">
+		<property name="service" ref="UpdateDBService"></property>
+	</bean>
+</beans>

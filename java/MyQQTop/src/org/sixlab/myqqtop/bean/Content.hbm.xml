@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="org.sixlab.myqqtop.bean.Content" table="content" lazy="false">
+		<id name="id" column="id" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="usernick" column="usernick" type="string"></property>
+		<property name="username" column="username" type="string"></property>
+		<property name="content" column="content" type="string"></property>
+		<property name="contentid" column="contentid" type="string"></property>
+		<property name="count" column="count" type="int"></property>
+		<property name="mcount" column="mcount" type="int"></property>
+		<property name="posttime" column="posttime" type="java.util.Date"></property>
+		<set name="rank" cascade="save-update" inverse="true" lazy="false">
+			<key column="content_id"></key>
+			<one-to-many class="org.sixlab.myqqtop.bean.Rank" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="org.sixlab.myqqtop.bean.Rank" table="rank" lazy="false">
+		<id name="id" column="id" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="gettime" column="gettime" type="java.util.Date"></property>
+		<many-to-one name="content" column="content_id" lazy="false"
+			class="org.sixlab.myqqtop.bean.Content"></many-to-one>
+	</class>
+</hibernate-mapping>
