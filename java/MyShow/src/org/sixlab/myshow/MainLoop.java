@@ -20,6 +20,10 @@ import javax.swing.JTextField;
 
 public class MainLoop extends JFrame
 {
+	/**
+	 * 
+	 */
+	private static final long		serialVersionUID	= -2065646414651442119L;
 	private JPanel					jPanel1;
 	private JTextField				jTextField1;
 	private JTextField				jTextField2;
@@ -42,6 +46,14 @@ public class MainLoop extends JFrame
 	private JLabel					jLabel1;
 	private Vector<String>			columnNames;
 	private Vector<Vector<String>>	content;
+	
+	private String					gloabID;
+	private String					gloabName;
+	private String					gloabSeries;
+	private String					gloabEpisode;
+	private String					gloabTV;
+	private String					gloabMark;
+	private String					gloabDate;
 	
 	public MainLoop()
 	{
@@ -92,6 +104,15 @@ public class MainLoop extends JFrame
 		columnNames.add("开始日期");
 		content = new Vector<>();
 		QueryDatabase.queryFilm("", "", "", "", "", "正看", "", content);
+		
+		gloabID = "";
+		gloabName = "";
+		gloabSeries = "";
+		gloabEpisode = "";
+		gloabTV = "";
+		gloabMark = "正看";
+		gloabDate = "";
+		
 		jTable1 = new JTable(content, columnNames);
 		jLabel1 = new JLabel("共有" + content.size() + "部正在看的电视剧。");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -235,6 +256,7 @@ public class MainLoop extends JFrame
 		String queryTV = jTextField5.getText();
 		String queryMark = jTextField6.getText();
 		String queryDate = jTextField7.getText();
+		
 		if (queryID == null)
 		{
 			queryID = "";
@@ -263,6 +285,19 @@ public class MainLoop extends JFrame
 		{
 			queryDate = "";
 		}
+		
+		queryName = queryName.replace("'", "''");
+		queryTV = queryTV.replace("'", "''");
+		queryMark = queryMark.replace("'", "''");
+		
+		gloabID = queryID;
+		gloabName = queryName;
+		gloabSeries = querySeries;
+		gloabEpisode = queryEpisode;
+		gloabTV = queryTV;
+		gloabMark = queryMark;
+		gloabDate = queryDate;
+		
 		QueryDatabase.queryFilm(queryID, queryName, querySeries, queryEpisode,
 				queryTV, queryMark, queryDate, content);
 		String queryString = queryID + " : " + queryName + " : " + querySeries
@@ -282,6 +317,7 @@ public class MainLoop extends JFrame
 		String queryTV = jTextField5.getText();
 		String queryMark = jTextField6.getText();
 		String queryDate = jTextField7.getText();
+		
 		if (queryName == null)
 		{
 			queryName = "";
@@ -339,13 +375,27 @@ public class MainLoop extends JFrame
 			}
 		}
 		
+		queryName = queryName.replace("'", "''");
+		queryTV = queryTV.replace("'", "''");
+		queryMark = queryMark.replace("'", "''");
+		
 		boolean isSucc = QueryDatabase.addFilm(queryName, querySeries,
 				queryEpisode, queryTV, queryMark, queryDate);
 		if (isSucc)
 		{
 			jLabel1.setText("增加成功！");
+			Vector<Vector<String>> content1 = new Vector<Vector<String>>();
 			QueryDatabase.queryFilm("", queryName, querySeries, queryEpisode,
-					queryTV, queryMark, queryDate, content);
+					queryTV, queryMark, queryDate, content1);
+			for (Vector<String> vector : content1)
+			{
+				Vector<String> newRecord = new Vector<String>();
+				for (String string : vector)
+				{
+					newRecord.add(string);
+				}
+				content.add(newRecord);
+			}
 			jTable1.invalidate();
 			jTable1.repaint();
 		} else
@@ -441,7 +491,7 @@ public class MainLoop extends JFrame
 		if (queryEpisode.equals(" "))
 		{
 			int ep = QueryDatabase.getEpisode(queryID) + 1;
-			if (ep==0)
+			if (ep == 0)
 			{
 				jLabel1.setText("严重警告：请检查ID！");
 				this.pack();
@@ -451,7 +501,7 @@ public class MainLoop extends JFrame
 		} else if (queryEpisode.equals(""))
 		{
 			int ep = QueryDatabase.getEpisode(queryID);
-			if (ep==-1)
+			if (ep == -1)
 			{
 				jLabel1.setText("严重警告：请检查ID！");
 				this.pack();
@@ -459,13 +509,18 @@ public class MainLoop extends JFrame
 			}
 			queryEpisode = String.valueOf(ep);
 		}
+		
+		queryName = queryName.replace("'", "''");
+		queryTV = queryTV.replace("'", "''");
+		queryMark = queryMark.replace("'", "''");
+		
 		boolean isSucc = QueryDatabase.updateFilm(queryID, queryName,
 				querySeries, queryEpisode, queryTV, queryMark, queryDate);
 		if (isSucc)
 		{
 			jLabel1.setText("修改成功！");
-			QueryDatabase.queryFilm(queryID, queryName, querySeries,
-					queryEpisode, queryTV, queryMark, queryDate, content);
+			QueryDatabase.queryFilm(gloabID, gloabName, gloabSeries,
+					gloabEpisode, gloabTV, gloabMark, gloabDate, content);
 			jTable1.invalidate();
 			jTable1.repaint();
 		} else

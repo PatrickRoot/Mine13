@@ -77,7 +77,6 @@ public class DBHandle
 	//
 	private static void queryBySql(Vector<Vector<String>> output, String sql)
 	{
-		System.out.println("query:" + sql);
 		Connection conn = connSqlite();
 		Statement stmt = null;
 		ResultSet rt = null;
@@ -118,7 +117,6 @@ public class DBHandle
 	 */
 	private static boolean updateBySql(String sql)
 	{
-		System.out.println("update:" + sql);
 		boolean output = false;
 		Connection conn = connSqlite();
 		Statement stmt = null;
@@ -215,7 +213,7 @@ public class DBHandle
 	{
 		boolean isSuc = false;
 		String sql = "update saw set ";
-		sql += ("Id='" + queryID + "'");
+		sql += ("Remark='" + queryMark + "'");
 		if (!queryLink.equals(""))
 		{
 			sql += (",Link='" + queryLink + "'");
@@ -224,13 +222,8 @@ public class DBHandle
 		{
 			sql += (",Name='" + queryName + "'");
 		}
-		if (!queryMark.equals(""))
-		{
-			sql += (",Remark='" + queryMark + "'");
-		}
 		sql += (" WHERE Id=" + queryID);
 		isSuc = updateBySql(sql);
-		
 		return isSuc;
 	}
 }

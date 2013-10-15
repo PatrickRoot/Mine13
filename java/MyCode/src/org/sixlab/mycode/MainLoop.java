@@ -6,6 +6,8 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -20,8 +22,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.text.MutableAttributeSet;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+import javax.swing.text.StyledEditorKit;
 import javax.swing.text.TabSet;
 import javax.swing.text.TabStop;
 
@@ -31,8 +36,8 @@ public class MainLoop extends JFrame
 	private JPanel				jPanel2;
 	private JPanel				jPanel3;
 	private JPanel				jPanel4;
-	private JTextField			jTextField1;
 	private JTextField			jTextField2;
+	private JTextField			jTextField1;
 	private JScrollPane			jScrollPane1;
 	private JScrollPane			jScrollPane2;
 	private JButton				jButton1;
@@ -42,6 +47,7 @@ public class MainLoop extends JFrame
 	private JButton				jButton5;
 	private JButton				jButton6;
 	private JButton				jButton7;
+	private JButton				jButton8;
 	private JList<String>		jList;
 	private JTextPane			jTextPane;
 	private JLabel				jLabel;
@@ -57,9 +63,10 @@ public class MainLoop extends JFrame
 		jList = new JList<String>((String[]) titleList.toArray(new String[0]));
 		jButton1 = new JButton("帮助");
 		jPanel4 = new JPanel(new BorderLayout());
-		jTextField2 = new JTextField();
-		jButton6 = new JButton("搜索");
 		jTextField1 = new JTextField();
+		jButton6 = new JButton("搜索");
+		jButton8 = new JButton("字体");
+		jTextField2 = new JTextField();
 		jScrollPane2 = new JScrollPane();
 		jTextPane = new JTextPane();
 		jPanel3 = new JPanel();
@@ -76,9 +83,10 @@ public class MainLoop extends JFrame
 		jScrollPane1.setViewportView(jList);
 		jPanel1.add(jButton1, BorderLayout.SOUTH);
 		jPanel2.add(jPanel4, BorderLayout.NORTH);
-		jPanel4.add(jTextField2, BorderLayout.CENTER);
+		jPanel4.add(jButton8, BorderLayout.WEST);
+		jPanel4.add(jTextField1, BorderLayout.CENTER);
 		jPanel4.add(jButton6, BorderLayout.EAST);
-		jPanel4.add(jTextField1, BorderLayout.SOUTH);
+		jPanel4.add(jTextField2, BorderLayout.SOUTH);
 		jPanel2.add(jScrollPane2, BorderLayout.CENTER);
 		jScrollPane2.setViewportView(jTextPane);
 		jPanel3.add(jLabel);
@@ -94,6 +102,42 @@ public class MainLoop extends JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jList.setSize(100, 550);
 		setTabs(jTextPane, 4);
+		
+		jTextField2.addKeyListener(new KeyAdapter()
+		{
+			@Override
+			public void keyPressed(KeyEvent e)
+			{
+				if (e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					copyTrigger();
+				}
+			}
+		});
+		
+		jTextField1.addKeyListener(new KeyAdapter()
+		{
+			@Override
+			public void keyPressed(KeyEvent e)
+			{
+				if (e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					searchTrigger();
+				}
+			}
+		});
+		
+		jTextPane.addKeyListener(new KeyAdapter()
+		{
+			@Override
+			public void keyPressed(KeyEvent e)
+			{
+				if (e.getKeyCode() == KeyEvent.VK_ENTER)
+				{
+					copyTrigger();
+				}
+			}
+		});
 		
 		jList.addMouseListener(new MouseAdapter()
 		{
@@ -119,8 +163,8 @@ public class MainLoop extends JFrame
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
-				jTextField1.setText("");
 				jTextField2.setText("");
+				jTextField1.setText("");
 				jTextPane.setText("");
 			}
 		});
@@ -169,6 +213,48 @@ public class MainLoop extends JFrame
 				upateTrigger();
 			}
 		});
+		
+		jButton8.addMouseListener(new MouseAdapter()
+		{
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				fontTrigger();
+			}
+		});
+	}
+	
+	protected void fontTrigger()
+	{
+		String sizeString = jTextField1.getText();
+		for (int i = 0; i < sizeString.length(); i++)
+		{
+			if (!Character.isDigit(sizeString.charAt(i)))
+			{
+				jLabel.setText("请输入数字再改变字体大小");
+				jTextField1.requestFocus();
+				return;
+			}
+		}
+		int size = Integer.parseInt(sizeString);
+		
+		if ((size > 0) && (size < 512))
+		{
+			MutableAttributeSet attr = new SimpleAttributeSet();
+			StyleConstants.setFontSize(attr, size);
+			
+			StyledDocument doc = (StyledDocument) jTextPane.getDocument();
+			doc.setCharacterAttributes(0, jTextPane.getText().length(), attr,
+					false);
+			
+			StyledEditorKit k = (StyledEditorKit) jTextPane.getEditorKit();
+			MutableAttributeSet inputAttributes = k.getInputAttributes();
+			inputAttributes.addAttributes(attr);
+		} else
+		{
+			jLabel.setText("超出范围");
+			
+		}
 	}
 	
 	private void setTabs(JTextPane textPane, int charactersPerTab)
@@ -208,8 +294,11 @@ public class MainLoop extends JFrame
 		}
 		
 		String id = selectString.substring(0, selectString.indexOf(":"));
-		String title = jTextField1.getText();
+		String title = jTextField2.getText();
 		String content = jTextPane.getText();
+		
+		title = title.replace("'", "''");
+		content = content.replace("'", "''");
 		
 		boolean updateSuccess = DBHandle.update(id, title, content);
 		
@@ -223,6 +312,7 @@ public class MainLoop extends JFrame
 		{
 			jLabel.setText("更新信息：" + id + " 失败！");
 		}
+		jTextField2.requestFocus();
 	}
 	
 	protected void selectTrigger()
@@ -238,15 +328,15 @@ public class MainLoop extends JFrame
 			jLabel.setText("获取信息：" + selectString + " 失败。");
 		} else
 		{
-			jTextField1.setText(title);
+			jTextField2.setText(title);
 			jTextPane.setText(context);
 		}
-		
+		jTextField2.requestFocus();
 	}
 	
 	protected void searchTrigger()
 	{
-		String searchContent = jTextField2.getText();
+		String searchContent = jTextField1.getText();
 		boolean searchSuccess = DBHandle.search(titleList, searchContent);
 		
 		if (searchSuccess)
@@ -259,6 +349,7 @@ public class MainLoop extends JFrame
 		}
 		jList.setListData(titleList.toArray(new String[0]));
 		jList.repaint();
+		jList.requestFocus();
 	}
 	
 	protected void copyTrigger()
@@ -271,8 +362,11 @@ public class MainLoop extends JFrame
 	
 	protected void insertTrigger()
 	{
-		String title = jTextField1.getText();
+		String title = jTextField2.getText();
 		String content = jTextPane.getText();
+		
+		title = title.replace("'", "''");
+		content = content.replace("'", "''");
 		
 		boolean insertSuccess = DBHandle.insert(title, content);
 		
@@ -286,7 +380,7 @@ public class MainLoop extends JFrame
 		{
 			jLabel.setText("插入信息：" + title + " 失败！");
 		}
-		
+		jTextField2.requestFocus();
 	}
 	
 	protected void deleteTrigger()
@@ -321,12 +415,18 @@ public class MainLoop extends JFrame
 				jLabel.setText("删除信息：" + id + " 失败！");
 			}
 		}
+		jTextField2.requestFocus();
 	}
 	
 	public static void main(String[] args)
 	{
 		MainLoop ml = new MainLoop();
 		ml.setVisible(true);
-		
+		if (ml.titleList.size() > 0)
+		{
+			ml.jList.setSelectedIndex(0);
+			ml.selectTrigger();
+		}
+		ml.jTextField2.requestFocus();
 	}
 }

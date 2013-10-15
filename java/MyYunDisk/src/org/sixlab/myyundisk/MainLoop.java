@@ -1,42 +1,48 @@
 package org.sixlab.myyundisk;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Desktop;
+import java.awt.Frame;
 import java.awt.GridLayout;
+import java.awt.Panel;
+import java.awt.TextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.net.URI;
 import java.util.Vector;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 
 /**
  * 
  * @author sixlab@nianqinianyi nianqinianyi@163.com
  * @version 2013-6-28,下午3:30:49
  */
-public class MainLoop extends JFrame
+public class MainLoop extends Frame
 {
 	private static final long		serialVersionUID	= -3991473444098558558L;
 	private Vector<Vector<String>>	content;
 	private Vector<String>			title;
 	
-	private JPanel					jupJPanel;
-	private JPanel					jcenJPanel;
-	private JPanel					jdownpJPanel;
+	private String					gloabID;
+	private String					gloabName;
+	private String					gloabMark;
+	private String					gloabLink;
 	
-	private JTextField				jTextField1;
-	private JTextField				jTextField2;
-	private JTextField				jTextField3;
-	private JTextField				jTextField4;
+	private Panel					jupJPanel;
+	private Panel					jcenJPanel;
+	private Panel					jdownpJPanel;
+	
+	private TextField				jTextField1;
+	private TextField				jTextField2;
+	private TextField				jTextField3;
+	private TextField				jTextField4;
 	
 	private JButton					resetButton;
 	private JButton					updateButton;
@@ -54,15 +60,14 @@ public class MainLoop extends JFrame
 	{
 		this.setTitle("我的网盘文件查询");
 		this.setBounds(450, 150, 450, 600);
-		Container container = this.getContentPane();
-		jupJPanel = new JPanel(new GridLayout(2, 4));
-		jcenJPanel = new JPanel();
-		jdownpJPanel = new JPanel(new BorderLayout());
+		jupJPanel = new Panel(new GridLayout(2, 4));
+		jcenJPanel = new Panel();
+		jdownpJPanel = new Panel(new BorderLayout());
 		
-		jTextField2 = new JTextField();
-		jTextField3 = new JTextField();
-		jTextField4 = new JTextField();
-		jTextField1 = new JTextField();
+		jTextField2 = new TextField();
+		jTextField3 = new TextField();
+		jTextField4 = new TextField();
+		jTextField1 = new TextField();
 		jTextField2.setColumns(10);
 		jTextField3.setColumns(10);
 		jTextField4.setColumns(10);
@@ -90,6 +95,10 @@ public class MainLoop extends JFrame
 		content = new Vector<Vector<String>>();
 		jScrollPane = new JScrollPane();
 		DBHandle.queryFile("", "", "", "", content);
+		gloabID = "";
+		gloabName = "";
+		gloabMark = "";
+		gloabLink = "";
 		
 		jTable = new JTable(content, title);
 		
@@ -105,11 +114,20 @@ public class MainLoop extends JFrame
 		jdownpJPanel.add(browserButton, BorderLayout.EAST);
 		resultLabel.setText("共有 " + content.size() + " 个文件记录。");
 		// 整合
-		container.add(jupJPanel, BorderLayout.NORTH);
-		container.add(jcenJPanel, BorderLayout.CENTER);
-		container.add(jdownpJPanel, BorderLayout.SOUTH);
+		this.add(jupJPanel, BorderLayout.NORTH);
+		this.add(jcenJPanel, BorderLayout.CENTER);
+		this.add(jdownpJPanel, BorderLayout.SOUTH);
 		this.pack();
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jTextField2.requestFocus();
+		
+		this.addWindowListener(new WindowAdapter()
+		{
+			@Override
+			public void windowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+		});
 		
 		helpButton.addMouseListener(new MouseAdapter()
 		{
@@ -124,6 +142,7 @@ public class MainLoop extends JFrame
 				helpText.append("5、在记录上右键点击，记录内容会填充到文本框。\n");
 				JOptionPane.showMessageDialog(null, helpText, "帮助",
 						JOptionPane.PLAIN_MESSAGE);
+				jTextField2.requestFocus();
 			}
 		});
 		
@@ -175,25 +194,7 @@ public class MainLoop extends JFrame
 				jTextField2.setText("");
 				jTextField4.setText("");
 				jTextField3.setText("");
-				jTextField1.requestFocus();
-				DBHandle.queryFile("", "", "", "", content);
-				resultLabel.setText("共有 " + content.size() + " 个文件记录。");
-				jTable.invalidate();
-				jTable.repaint();
-				pack();
-			}
-		});
-		
-		resetButton.addMouseListener(new MouseAdapter()
-		{
-			@Override
-			public void mouseClicked(MouseEvent e)
-			{
-				jTextField1.setText("");
-				jTextField2.setText("");
-				jTextField4.setText("");
-				jTextField3.setText("");
-				jTextField1.requestFocus();
+				jTextField2.requestFocus();
 				DBHandle.queryFile("", "", "", "", content);
 				resultLabel.setText("共有 " + content.size() + " 个文件记录。");
 				jTable.invalidate();
@@ -214,9 +215,8 @@ public class MainLoop extends JFrame
 	
 	private void browserTrigger()
 	{
-		int row = jTable.getSelectedColumn();
+		int row = jTable.getSelectedRow();
 		String cellVal4 = (String) jTable.getValueAt(row, 3);
-		
 		try
 		{
 			Desktop.getDesktop().browse(new URI(cellVal4));
@@ -224,6 +224,7 @@ public class MainLoop extends JFrame
 		{
 			e1.printStackTrace();
 		}
+		jTextField2.requestFocus();
 	}
 	
 	private void searchTrigger()
@@ -232,6 +233,12 @@ public class MainLoop extends JFrame
 		String queryName = jTextField2.getText();
 		String queryMark = jTextField3.getText();
 		String queryLink = jTextField4.getText();
+		
+		gloabID = queryID;
+		gloabName = queryName;
+		gloabMark = queryMark;
+		gloabLink = queryLink;
+		
 		if (queryID == null)
 		{
 			queryID = "";
@@ -248,14 +255,18 @@ public class MainLoop extends JFrame
 		{
 			queryLink = "";
 		}
+		
+		queryName = queryName.replace("'", "''");
+		queryMark = queryMark.replace("'", "''");
+		
 		DBHandle.queryFile(queryID, queryName, queryMark, queryLink, content);
-		System.out.println(content.size());
 		String queryString = queryID + ":" + queryName + " : " + queryMark
 				+ " : " + queryLink;
 		resultLabel.setText("查询“" + queryString + "”共有" + content.size()
 				+ "条结果。");
 		jTable.invalidate();
 		jTable.repaint();
+		jTextField2.requestFocus();
 		this.pack();
 	}
 	
@@ -264,6 +275,7 @@ public class MainLoop extends JFrame
 		String queryName = jTextField2.getText();
 		String queryMark = jTextField3.getText();
 		String queryLink = jTextField4.getText();
+		
 		if (queryName == null)
 		{
 			queryName = "";
@@ -272,9 +284,9 @@ public class MainLoop extends JFrame
 		{
 			queryMark = "";
 		}
-		if (queryLink == null)
+		if (queryLink == null | queryLink.equals(""))
 		{
-			queryLink = "";
+			queryLink = "http://www.baidu.com/s?word=" + queryMark;
 		} else
 		{
 			if (!queryLink.startsWith("http://"))
@@ -286,22 +298,37 @@ public class MainLoop extends JFrame
 		if (queryName.equals(""))
 		{
 			resultLabel.setText("严重警告：没有名字无法插入信息，请一定要输入名字！");
+			jTextField2.requestFocus();
 			this.pack();
 			return;
 		}
+		
+		queryName = queryName.replace("'", "''");
+		queryMark = queryMark.replace("'", "''");
 		
 		boolean isSucc = DBHandle.addFile(queryName, queryMark, queryLink);
 		if (isSucc)
 		{
 			resultLabel.setText("增加成功！");
-			DBHandle.queryFile("", queryName, queryMark, queryLink, content);
+			Vector<Vector<String>> content1 = new Vector<Vector<String>>();
+			DBHandle.queryFile("", queryName, queryMark, queryLink, content1);
+			for (Vector<String> vector : content1)
+			{
+				Vector<String> newRecord = new Vector<String>();
+				for (String string : vector)
+				{
+					newRecord.add(string);
+				}
+				content.add(newRecord);
+			}
+			jTextField2.requestFocus();
 			jTable.invalidate();
 			jTable.repaint();
 		} else
 		{
 			resultLabel.setText("增加失败！");
+			jTextField2.requestFocus();
 		}
-		jTextField1.requestFocus();
 		this.pack();
 	}
 	
@@ -315,6 +342,7 @@ public class MainLoop extends JFrame
 		if (queryID == null | queryID.equals(""))
 		{
 			resultLabel.setText("严重警告：没有ID无法修改信息，请一定要输入ID！！！");
+			jTextField1.requestFocus();
 			this.pack();
 			return;
 		} else
@@ -325,6 +353,7 @@ public class MainLoop extends JFrame
 				if (!Character.isDigit(c))
 				{
 					resultLabel.setText("严重警告：ID输入错误，请一定要输入数字形式ID!!！");
+					jTextField1.requestFocus();
 					this.pack();
 					return;
 				}
@@ -338,9 +367,9 @@ public class MainLoop extends JFrame
 		{
 			queryMark = "";
 		}
-		if (queryLink == null)
+		if (queryLink == null | "".equals(queryLink))
 		{
-			queryLink = "";
+			queryLink = "http://www.baidu.com/s?word=" + queryMark;
 		} else
 		{
 			if (!queryLink.startsWith("http://"))
@@ -349,18 +378,23 @@ public class MainLoop extends JFrame
 			}
 		}
 		
+		queryName = queryName.replace("'", "''");
+		queryMark = queryMark.replace("'", "''");
+		
 		boolean isSucc = DBHandle.updateFile(queryID, queryName, queryMark,
 				queryLink);
 		if (isSucc)
 		{
 			resultLabel.setText("修改成功！");
-			DBHandle.queryFile(queryID, queryName, queryLink, queryMark,
+			DBHandle.queryFile(gloabID, gloabName, gloabMark, gloabLink,
 					content);
 			jTable.invalidate();
 			jTable.repaint();
+			jTextField2.requestFocus();
 		} else
 		{
 			resultLabel.setText("修改失败！");
+			jTextField1.requestFocus();
 		}
 		this.pack();
 	}
@@ -381,6 +415,7 @@ public class MainLoop extends JFrame
 			jTextField2.setText(cellVal2);
 			jTextField3.setText(cellVal3);
 			jTextField4.setText(cellVal4);
+			jTextField2.requestFocus();
 		}
 	}
 	

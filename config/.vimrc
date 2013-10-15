@@ -3,6 +3,12 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+map \ 2dd
+
+colorscheme eveningByMe
+set guifont=YaHei\ Consolas\ Hybrid:h11
+set lines=23 columns=95
+
 ""tab键四个空格
 set tabstop=4
 set expandtab
@@ -98,3 +104,18 @@ endf
 ""修改备份文件的路径，让其统一到一个目录
 """"""""""""""""""""""""""""""""""""""""
 set backupdir=E:/other/vimBackup
+
+""""""""""""""""""""""""""""""""""""""""
+""20130627
+""终于添加大名鼎鼎的Ctags+taglist
+""""""""""""""""""""""""""""""""""""""""
+let Tlist_Ctags_Cmd="E:/program/Vim/ctags58"
+let Tlist_Show_Menu = 1
+"ctags set
+set tags=tags;
+set autochdir
+
+"使用F8打开Taglist
+nnoremap <silent> <F8> :TlistToggle<CR>
+"生成一个tags文件
+nmap <F9> <Esc>:!ctags -R *<CR>
