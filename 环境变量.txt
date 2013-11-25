@@ -1,0 +1,17 @@
+JAVA_HOME
+C:\Program Files\Java\jdk1.7.0
+
+PATH
+C:\Program Files\Java\jdk1.7.0\jre\bin
+
+CLASSPATH
+.;C:\Program Files\Java\jdk1.7.0\lib\dt.jar;C:\Program Files\Java\jdk1.7.0\lib\tools.jar;
+
+CATALINA_BASE
+CATALINA_HOME
+E:\program\apache-tomcat-6.0.37
+
+PATH
+E:\program\apache-tomcat-6.0.37\lib;E:\program\apache-tomcat-6.0.37\bin
+
+Path=%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\

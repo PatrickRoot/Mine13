@@ -26,7 +26,7 @@ public class ConvertImage
 			
 			// 读取图像
 			BufferedImage inImage = ImageIO.read(file);
-			BufferedImage outImage=new BufferedImage(inImage.getWidth(), inImage.getHeight(), 5);
+			BufferedImage outImage=new BufferedImage(inImage.getWidth(), inImage.getHeight(), 12);
 			
 			// 遍历图片每一个点，对其进行转换
 			for (int h = 0; h < inImage.getHeight(); h++)
