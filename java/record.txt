@@ -1,4 +1,4 @@
-1、学习Java过程中，刚学到AWT的时候，制作了一个SixlabCalculator，花了一天时间
+﻿1、学习Java过程中，刚学到AWT的时候，制作了一个SixlabCalculator，花了一天时间
 2、学习Java过程中，刚学完TCP/IP协议的时候，制作了MyQQ，花了两三天时间
 3、学习完Java Se，正在学习Java Web开发的时候，因个人需要，制作了MyMovies，花了一天多时间
 4、Java Web刚学完的时候，正在做毕业设计，因为毕业设计的需要，制作了convertimage，加上看Java图像处理方面的内容，总共花了半天多时间。
@@ -7,3 +7,4 @@
 7、Struts+Hibernate+Spring学习完，制作了一个调用腾讯微博热门微博的SSH框架的小型web程序，在此过程中，发现了需求，做作了MyCode，花费时间半天左右
 8、Struts+Hibernate+Spring学习完，制作了一个调用腾讯微博热门微博的SSH框架的小型web程序，花费一天左右时间。
 9、MyYunDisk，做于2013-06-28，早就想做了，忽然想到了，没什么大用，基于MyMovies改的，花了一个多小时。
+10、MyMovies已经删除，在github上独立了一个MovieRecorder项目，以便于后续更新。
