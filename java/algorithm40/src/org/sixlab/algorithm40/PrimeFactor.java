@@ -2,13 +2,13 @@ package org.sixlab.algorithm40;
 
 public class PrimeFactor {
 	public static void main(String[] args) {
-		int num = 90;
+		int num = 34;
 		System.out.println(decompose(num));
 	}
 	
 	private static String decompose(int num) {
 		String result = String.valueOf(num) + " = ";
-		int endNum = (int) (Math.sqrt(num) + 1);
+		int endNum = (int) (num/2 + 1);
 		for (int i = 2; i < endNum; i++) {
 			if (isPrime(i) && isDivisible(num, i)) {
 				result += (i + " * ");
