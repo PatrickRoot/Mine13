@@ -6,7 +6,7 @@ behave mswin
 map \ 2dd
 
 colorscheme eveningByMe
-set guifont=YaHei\ Consolas\ Hybrid:h11
+set guifont=文泉驿等宽微米黑:h11
 set lines=23 columns=95
 
 ""tab键四个空格

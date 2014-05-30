@@ -1,6 +1,12 @@
 package org.sixlab.algorithm40;
 
-public class Score {
+/**
+ * 
+ * @author loki
+ * 
+ *         题目：利用条件运算符的嵌套来完成此题：学习成绩> =90分的同学用A表示，60-89分之间的用B表示，60分以下的用C表示。
+ */
+public class No5Score {
 	public static void main(String[] args) {
 		try {
 			System.out.println(giveScore(100));
@@ -8,7 +14,7 @@ public class Score {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static char giveScore(int num) throws Exception {
 		if (num <= 100 && num >= 90) {
 			return 'A';
