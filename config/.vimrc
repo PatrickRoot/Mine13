@@ -5,7 +5,7 @@ behave mswin
 
 map \ 2dd
 
-colorscheme eveningByMe
+colorscheme evening
 set guifont=文泉驿等宽微米黑:h11
 set lines=23 columns=95
 
