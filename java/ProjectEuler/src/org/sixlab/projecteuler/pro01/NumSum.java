@@ -11,6 +11,8 @@ public class NumSum {
     public static int countNum(int num){
         int result = 0;
 
+
+
         for (int i = 1; i < 1000; i++) {
             if (is3or5(i)){
                 result +=i;
