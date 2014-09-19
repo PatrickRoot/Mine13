@@ -3,3 +3,5 @@
 
 #忽略掉eclipse生成的.settings下的文件
 .myeclipse/
+
+bin/
