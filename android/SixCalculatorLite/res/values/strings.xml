@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SixCalculator Lite</string>
+    <string name="current_num">当前数字:</string>
+    <string name="input_num">输入数字:</string>
+    <string name="action_settings">Settings</string>
+    <string name="plus_sign">+</string>
+    <string name="minus_sign">-</string>
+    <string name="multiplication_sign">*</string>
+    <string name="division_sign">/</string>
+    <string name="zero">0</string>
+    <string name="clear">C</string>
+    <string name="clear_e">CE</string>
+
+</resources>
