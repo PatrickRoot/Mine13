@@ -1,7 +1,13 @@
-#忽略掉所有的.class文件
 *.class
+# *.jar  #
+*.war
+*.ear
 
-#忽略掉eclipse生成的.settings下的文件
-.myeclipse/
-
+hs_err_pid*
 bin/
+target/
+temp/
+.*/
+
+*.tmp
+.*
