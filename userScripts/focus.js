@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Focus
 // @namespace    http://sixlab.cn/
-// @version      0.0.1
+// @version      0.0.2
 // @description  去掉网页上影响关注的内容!
 // @author       loki/六楼的雨
-// @match        *
+// @include      *
+// @grant        none
 // @require      http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js
 // ==/UserScript==
 /* jshint -W097 */
