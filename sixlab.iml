@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/Cocos2d-JS" />
+      <excludeFolder url="file://$MODULE_DIR$/MyBlogContent" />
+      <excludeFolder url="file://$MODULE_DIR$/UrlConvert" />
+      <excludeFolder url="file://$MODULE_DIR$/android" />
+      <excludeFolder url="file://$MODULE_DIR$/artifact" />
+      <excludeFolder url="file://$MODULE_DIR$/collect" />
+      <excludeFolder url="file://$MODULE_DIR$/j2p" />
+      <excludeFolder url="file://$MODULE_DIR$/java" />
+      <excludeFolder url="file://$MODULE_DIR$/python" />
+      <excludeFolder url="file://$MODULE_DIR$/react" />
+      <excludeFolder url="file://$MODULE_DIR$/record" />
+      <excludeFolder url="file://$MODULE_DIR$/五子棋" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
