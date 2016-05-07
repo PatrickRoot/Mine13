@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<@head title="注册" />
+<@js>
+    jq.alerts
+    jq.form
+    jq.validate
+    user/reg
+</@js>
+</head>
+<body>
+<@body type="top"/>
+<div id="body" class="container" style="margin: 10% auto;width:30%;">
+    <form id="frm" name="frm" action="${request.contextPath}/user/submitReg.lab">
+
+        <div>
+            <h2>欢迎注册</h2>
+        </div>
+
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input name="username" id="username" type="text" class="form-control"
+                   placeholder="用户名" />
+        </div>
+
+        <div class="form-group">
+            <label for="password">密码</label>
+            <input name="password" id="password" type="password" class="form-control"
+                   placeholder="密码" />
+        </div>
+
+        <div class="form-group">
+            <label for="rePwd">确认密码</label>
+            <input name="rePwd" id="rePwd" type="password" class="form-control"
+                   placeholder="确认密码" />
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="submitBtn">提交</button>
+
+    </form>
+</div>
+<@body/>
+</body>
+</html>

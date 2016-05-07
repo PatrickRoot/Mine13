@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<extension> 
+    <id>cn.sixlab.extension.remove.se</id> 
+    <name>集中注意力</name> 
+    <show_icon>true</show_icon> 
+    <description>去掉集中注意力的内容</description> 
+    <version>0.1</version>
+    <request_api_version>1</request_api_version>
+    <author>六楼的雨/loki</author>
+    <content_scripts>
+         <content_script all_frames="true"> 
+           <match>http://*/*</match>
+           <js>jquery.js</js>
+           <js>my.js</js>
+       </content_script> 
+    </content_scripts>
+</extension> 

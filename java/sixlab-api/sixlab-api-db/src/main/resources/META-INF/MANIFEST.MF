@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Built-By: loki
+Class-Path: dblib/spark-core-2.3.jar dblib/spark-template-freemarker-2.3 dblib/fa
+ stjson-1.2.7.jar dblib/mysql-connector-java-5.1.38.jar
+Created-By: Apache Maven 3.2.2
+Build-Jdk: 1.8.0_66
+Main-Class: cn.sixlab.own.api.db.ApiDb
+

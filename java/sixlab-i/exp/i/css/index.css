@@ -1,0 +1,223 @@
+/*body的属性*/
+body {
+    /*
+        CSS实现响应式全屏背景图
+        http://www.bubuko.com/infodetail-674543.html
+    */
+    background: url('../img/road.jpg');
+
+    /* 背景图垂直、水平均居中 */
+    background-position: center center;
+
+    /* 背景图不平铺 */
+    background-repeat: no-repeat;
+
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-attachment: fixed;
+
+    /* 让背景图基于容器大小伸缩 */
+    background-size: cover;
+
+    /* 设置背景颜色，背景图加载过程中会显示背景色 */
+    background-color: #464646;
+
+    /*当css属性background-size 值为cover时，浏览器会自动按比例缩放背景图的宽和高，直到大于或等于viewport的宽和高*/
+    background-size: cover;
+}
+
+#s-footer {
+    position: absolute;
+    text-align: center;
+    color: #ffffff;
+    width: 200px;
+    margin: 0 auto;
+    bottom: 10px;
+    left: 50%;
+    margin: 0 0 0 -100px;
+}
+
+/*中间居中的容器*/
+#s-container {
+    /*
+        如何让DIV相对于body水平和垂直居中
+        http://www.helloweba.com/view-blog-93.html
+    */
+    margin: 0 auto;
+    width: 450px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -150px 0 0 -225px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+/*中间半透明的容器*/
+#s-container {
+    /*
+        【原】CSS实现背景透明，文字不透明，兼容所有浏览器
+        http://www.cnblogs.com/PeunZhang/p/4089894.html
+    */
+    background-color: rgba(0, 0, 0, 0.5); /* IE9、标准浏览器、IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂 */
+}
+
+#s-container p {
+    color: #FFFFFF;
+}
+
+/*中间圆角的容器*/
+#s-container{
+    border-radius: 20px;
+}
+
+.s-half{
+    height:130px;
+}
+
+#s-up-half{
+    height: 120px;
+    line-height: 120px;
+    font-size: 40px;
+    text-align: center;
+    color: #ffffff;
+}
+
+#s-up-half span:hover {
+    color: rgb(193, 192, 149);
+    border-bottom: 1px solid rgb(193, 192, 149);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#s-down-half {
+    border-top: 1px solid rgb(212, 216, 67);
+    height: 179px;
+    font-size: 20px;
+    padding-top: 60px;
+    text-align: center;
+    color: rgb(193, 192, 149);
+}
+
+#s-down-half span:hover {
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@-webkit-keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+        -ms-transform: scale(.3);
+        transform: scale(.3)
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05)
+    }
+
+    70% {
+        -webkit-transform: scale(.9);
+        -ms-transform: scale(.9);
+        transform: scale(.9)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+        -ms-transform: scale(.3);
+        transform: scale(.3)
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05)
+    }
+
+    70% {
+        -webkit-transform: scale(.9);
+        -ms-transform: scale(.9);
+        transform: scale(.9)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@-moz-keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+        -ms-transform: scale(.3);
+        transform: scale(.3)
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05)
+    }
+
+    70% {
+        -webkit-transform: scale(.9);
+        -ms-transform: scale(.9);
+        transform: scale(.9)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@-o-keyframes bounceIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(.3);
+        -ms-transform: scale(.3);
+        transform: scale(.3)
+    }
+
+    50% {
+        opacity: 1;
+        -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        transform: scale(1.05)
+    }
+
+    70% {
+        -webkit-transform: scale(.9);
+        -ms-transform: scale(.9);
+        transform: scale(.9)
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1)
+    }
+}

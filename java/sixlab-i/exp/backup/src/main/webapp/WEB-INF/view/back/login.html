@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <@head title="login" ></@head>
+    <@js>
+        login.js
+    </@js>
+</head>
+<body>
+<@body type="top"/>
+<form id="frm" name="frm" action="${request.contextPath}/submitLogin.six">
+    <input name="username" id="username" type="text"/>
+    <input name="password" id="password" type="password"/>
+
+    <input type="button" value="提交${request.contextPath}" id="submitBtn"/>
+</form>
+<@body/>
+</body>
+</html>

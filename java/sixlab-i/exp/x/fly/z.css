@@ -1,0 +1,35 @@
+body{
+    overflow: hidden;
+}
+
+.cell{
+    display: inline-block;
+    border: 5px solid orange;
+    margin: 10px;
+    text-align: center;
+}
+
+#up-left{
+    background-color: #4582ec;
+}
+
+#up-right {
+    background-color: #46b8da;
+}
+
+#center-center{
+    background-color: darkgrey;
+}
+
+#down-left{
+    background-color: lightgreen;
+}
+
+#down-right{
+    background-color: orchid;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}

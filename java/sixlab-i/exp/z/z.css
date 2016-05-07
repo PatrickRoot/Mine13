@@ -1,0 +1,15 @@
+#container{
+    height: 200px;
+    margin: 100px;
+}
+
+#noHeight{
+    height: 0px;
+    overflow: hidden;
+}
+
+#innerDiv{
+    height: 200px;
+    background-color: #5cb85c;
+    margin-top: -200px;
+}

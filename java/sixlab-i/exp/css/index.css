@@ -1,0 +1,49 @@
+
+.block {
+    float: left;
+    border: none;
+    background-color: #EEEEEE;
+}
+
+#left {
+    background-color: #5cb85c;
+}
+
+#center {
+    background-color: #00A7E2;
+}
+
+#right {
+    background-color: #84C922;
+}
+
+#container {
+    border: none;
+    min-width: 450px;
+    min-height: 350px;
+    overflow: hidden;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+li {
+    display: block;
+    line-height: 30px;
+    height: 30px;
+    width: 100%;
+}
+
+.inner-top {
+    height: 60px;
+}
+
+.inner-left {
+    width: 20px;
+    height: 2px;
+}
+
+.inner-block{
+    display: inline-block;
+}

@@ -1,0 +1,16 @@
+#container{
+    width:100%;
+    padding: 30px;
+}
+
+#container div:first-child {
+    border-top: 1px solid #ABCDEF;
+}
+
+#container div{
+    width: 80%;
+    height: 50px;
+    border-left: 1px solid #ABCDEF;
+    border-right: 1px solid #ABCDEF;
+    border-bottom: 1px solid #ABCDEF;
+}

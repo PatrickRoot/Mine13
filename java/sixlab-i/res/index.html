@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>六楼实验室</title>
+    <style type="text/css">
+
+        #s-wrap{
+            display: table;
+            width: 100%;
+        }
+
+        #s-sidebar{
+            background-color: #cccccc;
+            border: 1px solid #cccccc;
+            display: table-cell;
+            width: 200px;
+            height: 100%;
+        }
+
+        #s-content{
+            display: table-cell;
+            background-color: #fffccc;
+        }
+    </style>
+</head>
+<body>
+
+<div id="s-wrap">
+    <div id="s-sidebar">2</div>
+    <div id="s-content">1</div>
+</div>
+
+<script src="test/sea.js" type="text/javascript"></script>
+<script type="text/javascript">
+    seajs.use("./test/test1.js");
+    seajs.use("./test/test2.js");
+//    seajs.use("./test/semantic.min.js");
+//    seajs.use("./test/Sortable.min.js");
+</script>
+</body>
+</html>

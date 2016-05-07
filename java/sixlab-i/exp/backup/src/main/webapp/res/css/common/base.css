@@ -1,0 +1,88 @@
+@charset "utf-8";
+/**自定义**/
+
+#body {
+    min-height: 400px;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.error {
+    color: #FF1111;
+}
+
+#top{
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+#topBody {
+    margin: 0 auto;
+    height: 60px;
+    width: 1000px;
+}
+
+#logo {
+    color: #4582ec;
+    float: left;
+    line-height: 60px;
+    font-size: 40px;
+}
+
+#logo a{
+    cursor: pointer;
+}
+
+#regLog {
+    color: #4582ec;
+    float: right;
+    line-height: 60px;
+}
+
+#regLog a {
+    color: #4582ec;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#logoSix {
+    color: #99CCFF;
+}
+
+#logoLab {
+    color: #DDDDDD;
+}
+
+#logo a:hover{
+    text-decoration: none;
+}
+
+#bottom {
+    height: 40px;
+    width: 100%;
+    border-top: 1px solid #DDDDDD;
+}
+
+#copyRight{
+    margin: 0 auto;
+    padding-top: 10px;
+    height: 30px;
+    width: 1000px;
+    text-align: center;
+    color: #AAAAAA;
+}
+
+#center {
+    width: 100%;
+}
+
+#regFrm{
+    width: 40%;
+    margin: 0 auto;
+}
+
+#loginFrm {
+    width: 30%;
+    margin: 0 auto;
+}
