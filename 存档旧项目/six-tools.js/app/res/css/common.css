@@ -1,0 +1,7 @@
+/*
+设置主要字体栈的时候，要对单元格和这些元素都进行设置 `html`, `button`, `input`, `select`, and `textarea`。
+*/
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: "微软雅黑", "Microsoft YaHei", Arial, sans-serif, "Helvetica Neue", Helvetica, "Hiragino Sans GB";
+}

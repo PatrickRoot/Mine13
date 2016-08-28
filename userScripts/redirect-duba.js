@@ -6,7 +6,6 @@
 // @author       loki/六楼的雨
 // @include      *://www.duba.com/*
 // @grant        none
-// @require      https://raw.githubusercontent.com/nianqinianyi/sixlab/master/userScripts/jquery.min.js
 // ==/UserScript==
 /* jshint -W097 */
 

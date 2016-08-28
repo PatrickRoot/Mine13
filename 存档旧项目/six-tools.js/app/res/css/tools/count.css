@@ -1,0 +1,19 @@
+
+.count-counter {
+    border: 1px solid salmon;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    line-height: 200px;
+}
+
+.count-container{
+    width: 100%;
+    text-align: center;
+    height: 50px;
+}
+
+.count-btn{
+    width:100px;
+    height:50px;
+}

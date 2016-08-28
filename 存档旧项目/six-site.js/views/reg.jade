@@ -1,0 +1,42 @@
+//
+   Copyright (c) 1995 Sixlab. All rights reserved.
+
+   Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
+   see http://www.gnu.org/licenses/gpl-3.0-standalone.html
+
+   For more information, please see
+   http://sixlab.cn/
+
+   @author 六楼的雨/loki
+   @since 1.0.0(2016/1/10)
+extends layout
+block head
+    title= "登录"
+    link(rel='stylesheet', href=staticPre + '/css/reg.css')
+    script(type="text/javascript")
+        | seajs.use("reg");
+
+block top
+
+block content
+    .ui.middle.aligned.center.aligned.grid
+        .column
+            h2.ui.teal.image.header
+                img(src='/img/logo@m.png').image
+                .content 注册新账户
+            form.ui.large.form
+                .ui.stacked.segment
+                    .field
+                        .ui.left.icon.input
+                            i.user.icon
+                            input(type="text",name="username",placeholder="用户名",autocomplete='off')
+                    .field
+                        .ui.left.icon.input
+                            i.lock.icon
+                            input(type="password",name="password",placeholder="密码")
+                    .ui.fluid.large.teal.submit.button 注册
+                .ui.error.message
+            .ui.message 已有账号?
+                a(href='/login') 点此登录
+block footer
+    div#login-footer @copyright sixlab

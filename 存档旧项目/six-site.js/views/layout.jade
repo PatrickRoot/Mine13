@@ -1,0 +1,36 @@
+//
+   Copyright (c) 1995 Sixlab. All rights reserved.
+
+   Under the GPLv3(AKA GNU GENERAL PUBLIC LICENSE Version 3).
+   see http://www.gnu.org/licenses/gpl-3.0-standalone.html
+
+   For more information, please see
+   http://sixlab.cn/
+
+   @author 六楼的雨/loki
+   @since 1.0.0(2016/1/10)
+include var
+doctype html
+
+html
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible',content='IE=edge, chrome=1')
+        meta(name='renderer',content='webkit')
+        block script
+            script(src=staticPre + '/com/seajs/sea' + staticMin + '.js')
+            script(src=staticPre + '/com/jquery/jquery' + staticMin + '.js')
+            script(src=staticPre + '/com/semantic/semantic' + staticMin + '.js')
+            script(src=staticPre + '/com/six/common.js')
+        block style
+            link(rel='stylesheet', href=staticPre + '/com/semantic/semantic' + staticMin + '.css')
+            link(rel='stylesheet', href=staticPre + '/com/six/common.css')
+        block head
+            title= "six-site"
+    body
+        block top
+            include commonTop
+        block content
+            div
+        block footer
+            include commonBottom

@@ -1,0 +1,19 @@
+extends layout
+
+block head
+    title 1+#{title}
+
+block content
+  h1= title
+  p Welcome 1to #{title}11
+  p label Username:
+      input(name='user[name]')
+
+
+
+  div label
+      | Username:
+      input(name='user[name]')
+
+  - var html = "<script></script>"
+  | !{html}

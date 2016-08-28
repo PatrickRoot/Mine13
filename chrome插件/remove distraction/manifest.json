@@ -18,6 +18,7 @@
   "background": {
     "page": "html/background.html"
   },
+   "permissions": [ "background", "geolocation", "management", "topSites", "bookmarks", "unlimitedStorage", "topSites", "identity", "http://*/", "https://*/", "chrome://favicon/", "history", "alarms", "notifications", "tabs", "storage", "activeTab", "declarativeContent", "webNavigation", "webRequest", "webRequestBlocking", "cookies" ],
   "content_scripts": [
     {
       "matches": [

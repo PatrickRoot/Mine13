@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ message }}</p>
+    <input v-model="message">
+    <button v-on:click="reverseMessage">Reverse Message</button>
+
+    <ul>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ul>
+</div>
+
+
+<div id="app1">
+    <input v-model="newTodo" v-on:keyup.enter="addTodo">
+    <ul>
+        <li v-for="todo in todos">
+            <span>{{ todo.text }}</span>
+            <button v-on:click="removeTodo($index)">X</button>
+        </li>
+    </ul>
+</div>
+
+<div id="app2">
+    <template v-if="top" transition="expand">
+        <ul>
+            <template v-for="item in items">
+                <li>{{ item.msg }}</li>
+                <li>this is test</li>
+            </template>
+        </ul>
+    </template>
+    <button v-on:click="toggleTop">Toggle Top</button>
+</div>
+
+<div id="app3">
+    <six-temp></six-temp>
+</div>
+
+<script src="test.js"></script>
+</body>
+</html>
