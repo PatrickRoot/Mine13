@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<spring>
+    <app>
+        <!-- thrift连接池配置 -->
+        <bean id="connectionProvider"
+              class="cn.com.ebidding.module.common.iti.service.GenericConnectionProvider">
+            <property name="serviceIP" value="192.168.100.30"/>
+            <property name="servicePort" value="9801"/>
+            <property name="maxActive" value="10"/>
+            <property name="maxIdle" value="10"/>
+            <property name="testOnBorrow" value="true"/>
+            <property name="testOnReturn" value="true"/>
+            <property name="testWhileIdle" value="true"/>
+            <property name="conTimeOut" value="2000"/>
+        </bean>
+
+        <!-- thrift连接管理配置 -->
+        <bean id="connectionManager"
+              class="cn.com.ebidding.module.common.iti.service.ConnectionManager">
+            <property name="connectionProvider" ref="connectionProvider"/>
+        </bean>
+
+        <!-- thrift连接AOP配置
+        aop:config
+        aop:pointcut
+        aop:advisor
+        -->
+        <config proxy-target-class="true">
+            <pointcut id="clientMethods"
+                          expression="execution(* cn.com.ebidding.module.common.iti.service.SendMsgService.send*(..))"/>
+            <advisor advice-ref="connectionManager" pointcut-ref="clientMethods"/>
+        </config>
+    </app>
+    <mvc>
+        <bean id="exceptionResolver" class="cn.sixlab.web.site.util.exception.ExceptionResolver">
+            <property name="exceptionMappings">
+                <props>
+                    <prop key="javax.servlet.ServletException">error/errorPage</prop>
+                    <prop key="java.lang.Exception">error/errorPage</prop>
+                    <prop key="org.springframework.web.servlet.NoHandlerFoundException">
+                        error/error404
+                    </prop>
+                    <prop key="cn.sixlab.web.site.util.exception.DataPermissionException">
+                        error/noDataPermissionPage
+                    </prop>
+                    <prop key="cn.sixlab.web.site.util.exception.AnnotationException">
+                        error/noAnnotationPage
+                    </prop>
+                    <prop key="cn.sixlab.web.site.util.exception.MyException">error/errorPage</prop>
+                </props>
+            </property>
+        </bean>
+
+        <!-- 资源文件绑定器 -->
+        <bean id="messageSource"
+              class="cn.sixlab.web.site.util.context.support.ResourceBundleMessageSource">
+            <property name="basenames">
+                <list>
+                    <value>i18n</value>
+                </list>
+            </property>
+            <property name="defaultEncoding" value="UTF-8"></property>
+        </bean>
+    </mvc>
+</spring>
