@@ -3,7 +3,7 @@
 // @namespace   amazon_book_douban
 // @version     0.0.8
 // @include     *//www.amazon.cn/*
-// @require      https://raw.githubusercontent.com/nianqinianyi/sixlab/master/userScripts/jquery.min.js
+// @require      https://raw.githubusercontent.com/PatrickRoot/sixlab-13/master/userScripts/jquery.min.js
 // author       udonmai@gmail.com
 // 2012-02-22   inition
 // 2012-02-25   Thanks to wong2
