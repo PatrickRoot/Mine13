@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= message
+  p Welcome to <a href='https://sixlab.cn/'>六楼实验室</a>
+  h2= error.status
+  pre #{error.stack}
