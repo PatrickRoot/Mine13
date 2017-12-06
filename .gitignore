@@ -188,7 +188,6 @@ buildNumber.properties
 
 # Package Files #
 *.jar
-*.zip
 *.tar.gz
 *.rar
 
