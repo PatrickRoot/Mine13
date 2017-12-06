@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">六楼的工具</string>
+    <string name="title_activity_main">六楼的工具</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">设置</string>
+
+    <string name="ft_item_01">首页</string>
+    <string name="ft_item_02">时间计算器</string>
+    <string name="ft_item_03">电影</string>
+    <string name="ft_item_04">电视剧</string>
+
+    <string name="ft_group_01">娱乐</string>
+    <string name="ft_item_05">Kotlin</string>
+    <string name="ft_item_06">待定</string>
+
+    <string name="place_holder">&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="site">http://sixlab.cn/</string>
+    <string name="query_movie_btn">查</string>
+    <string name="produce_year">年份</string>
+    <string name="produce_director">导演</string>
+    <string name="produce_remark">备注</string>
+    <string name="produce_view_date">观看日期</string>
+    <string name="douban_score">豆瓣评分</string>
+    <string name="douban_info_btn">读豆瓣</string>
+    <string name="add_movie_confirm_txt">添加</string>
+    <string name="show_season_label">季</string>
+    <string name="show_episode_label">集</string>
+    <string name="show_tv_label">出品</string>
+    <string name="show_view_label">开始日期</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_ft_01"
+            android:icon="@drawable/ic_home"
+            android:title="@string/ft_item_01" />
+        <item
+            android:id="@+id/nav_ft_02"
+            android:icon="@drawable/ic_calendar"
+            android:title="@string/ft_item_02" />
+        <item
+            android:id="@+id/nav_ft_03"
+            android:icon="@drawable/ic_media_play"
+            android:title="@string/ft_item_03" />
+        <item
+            android:id="@+id/nav_ft_04"
+            android:icon="@drawable/ic_monitor"
+            android:title="@string/ft_item_04" />
+
+        <item
+            android:id="@+id/nav_ft_05"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/ft_item_05" />
+        <item
+            android:id="@+id/nav_ft_06"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/ft_item_06" />
+
+        <!--<group android:title="@string/ft_group_01">-->
+            <!--<menu>-->
+                <!--<item-->
+                    <!--android:id="@+id/nav_ft_05"-->
+                    <!--android:icon="@drawable/ic_media_play"-->
+                    <!--android:title="@string/ft_item_05" />-->
+                <!--<item-->
+                    <!--android:id="@+id/nav_ft_06"-->
+                    <!--android:icon="@drawable/ic_monitor"-->
+                    <!--android:title="@string/ft_item_06" />-->
+            <!--</menu>-->
+        <!--</group>-->
+    </group>
+
+</menu>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#388CEC</color>
+    <color name="colorPrimaryDark">#388CEC</color>
+    <color name="colorAccent">#27AE61</color>
+
+    <color name="colorData">#297FB8</color>
+    <color name="colorTime">#297FB8</color>
+    <color name="colorResult">#3598DB</color>
+
+    <color name="sweetAlertColor">#A5DC86</color>
+</resources>

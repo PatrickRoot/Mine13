@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:flatui="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView"
+            android:layout_gravity="end">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.cengalabs.flatui.views.FlatEditText
+                android:id="@+id/add_movie_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:maxLines="1"
+                android:gravity="center_vertical"
+                android:hint="关键字/电影名"
+                android:includeFontPadding="true"
+                android:paddingLeft="5dp"
+                flatui:fl_fieldStyle="fl_box"/>
+
+            <com.cengalabs.flatui.views.FlatButton
+                android:id="@+id/query_movie_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="@string/query_movie_btn"
+                android:layout_margin="5dp"
+                flatui:fl_textAppearance="fl_light"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/movie_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
