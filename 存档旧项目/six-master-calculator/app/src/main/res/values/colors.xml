@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009687</color>
+    <color name="colorPrimaryDark">#008D7D</color>
+    <color name="colorAccent">#27AE61</color>
+    <color name="colorData">#297FB8</color>
+    <color name="colorTime">#297FB8</color>
+    <color name="colorResult">#3598DB</color>
+    <!--<color name="colorPrimary">#3598DB</color>-->
+    <!--<color name="colorPrimaryDark">#297FB8</color>-->
+    <!--<color name="colorAccent">#27AE61</color>-->
+    <!--<color name="colorData">#F39C11</color>-->
+    <!--<color name="colorTime">#F39C11</color>-->
+    <!--<color name="colorResult">#E67F22</color>-->
+    <!--<color name="colorResult">#00A2E8</color>-->
+</resources>

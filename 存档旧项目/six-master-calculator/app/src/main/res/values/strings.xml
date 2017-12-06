@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">计算神器</string>
+    <string name="title_activity_main">计算神器</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">设置</string>
+
+    <string name="ft_item_01">首页</string>
+    <string name="ft_item_02">时间计算器</string>
+    <string name="ft_item_03">待定</string>
+    <string name="ft_item_04">待定</string>
+
+    <string name="ft_group_01">待定</string>
+    <string name="ft_item_05">待定</string>
+    <string name="ft_item_06">待定</string>
+    <string name="place_holder">&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="site">http://sixlab.cn/</string>
+</resources>
