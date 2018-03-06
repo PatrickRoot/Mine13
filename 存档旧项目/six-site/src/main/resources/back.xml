@@ -3,7 +3,7 @@
     <app>
         <!-- thrift连接池配置 -->
         <bean id="connectionProvider"
-              class="cn.com.ebidding.module.common.iti.service.GenericConnectionProvider">
+              class="GenericConnectionProvider">
             <property name="serviceIP" value="192.168.100.30"/>
             <property name="servicePort" value="9801"/>
             <property name="maxActive" value="10"/>
@@ -16,7 +16,7 @@
 
         <!-- thrift连接管理配置 -->
         <bean id="connectionManager"
-              class="cn.com.ebidding.module.common.iti.service.ConnectionManager">
+              class="ConnectionManager">
             <property name="connectionProvider" ref="connectionProvider"/>
         </bean>
 
@@ -27,7 +27,7 @@
         -->
         <config proxy-target-class="true">
             <pointcut id="clientMethods"
-                          expression="execution(* cn.com.ebidding.module.common.iti.service.SendMsgService.send*(..))"/>
+                          expression="execution(* SendMsgService.send*(..))"/>
             <advisor advice-ref="connectionManager" pointcut-ref="clientMethods"/>
         </config>
     </app>

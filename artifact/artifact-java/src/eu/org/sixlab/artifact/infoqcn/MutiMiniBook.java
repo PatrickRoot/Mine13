@@ -1,8 +1,3 @@
-/* 
- *******************************************************************************************
- * Copyright www.ebidding.net.cn 2014年11月29日 Authors: 曹林伟 <caolinwei@ebidding.com.cn>*
- *******************************************************************************************
- */
 package eu.org.sixlab.artifact.infoqcn;
 
 import java.io.File;
@@ -24,9 +19,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-/**
- * 作者:曹林伟 创建时间:2014年11月29日 功能描述： 版本:2.0.0
- */
 public class MutiMiniBook {
     
     private static final String DOMAIN = "http://www.infoq.com";

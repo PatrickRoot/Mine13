@@ -72,29 +72,3 @@
     </bean>
 
 </beans>
-
-
-
-
-        <!--&lt;!&ndash; thrift连接池配置 &ndash;&gt;-->
-<!--<bean id="connectionProvider" class="cn.com.ebidding.module.common.iti.service.GenericConnectionProvider">-->
-<!--<property name="serviceIP" value="192.168.100.30" />-->
-<!--<property name="servicePort" value="9801" />-->
-<!--<property name="maxActive" value="10" />-->
-<!--<property name="maxIdle" value="10" />-->
-<!--<property name="testOnBorrow" value="true" />-->
-<!--<property name="testOnReturn" value="true" />-->
-<!--<property name="testWhileIdle" value="true" />-->
-<!--<property name="conTimeOut" value="2000" />-->
-<!--</bean>-->
-
-        <!--&lt;!&ndash; thrift连接管理配置 &ndash;&gt;-->
-<!--<bean id="connectionManager" class="cn.com.ebidding.module.common.iti.service.ConnectionManager">-->
-<!--<property name="connectionProvider" ref="connectionProvider" />-->
-<!--</bean>-->
-
-        <!--&lt;!&ndash; thrift连接AOP配置 &ndash;&gt;-->
-<!--<aop:config proxy-target-class="true">-->
-<!--<aop:pointcut id="clientMethods" expression="execution(* cn.com.ebidding.module.common.iti.service.SendMsgService.send*(..))" />-->
-<!--<aop:advisor advice-ref="connectionManager" pointcut-ref="clientMethods" />-->
-<!--</aop:config>-->

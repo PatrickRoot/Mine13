@@ -1,8 +1,3 @@
-/* 
- *******************************************************************************************
- * Copyright www.ebidding.net.cn 2014年11月29日 Authors: 曹林伟 <caolinwei@ebidding.com.cn>*
- *******************************************************************************************
- */
 package eu.org.sixlab.artifact.infoqcn;
 
 import java.io.File;

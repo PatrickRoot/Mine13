@@ -65,40 +65,4 @@
     </mvc:interceptors>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- todo 资源文件绑定器 -->
-    <!--<bean id="messageSource" class="cn.com.ebidding.core.context.support.EbsResourceBundleMessageSource">-->
-        <!--<property name="basenames">-->
-            <!--<list>-->
-                <!--<value>i18n</value>-->
-            <!--</list>-->
-        <!--</property>-->
-        <!--<property name="defaultEncoding" value="UTF-8"></property>-->
-    <!--</bean>-->
-
-    <!--TODO 异常处理 -->
-    <!--<bean id="exceptionResolver" class="cn.com.ebidding.core.exception.ExceptionResolver">-->
-        <!--<property name="exceptionMappings">-->
-            <!--<props>-->
-                <!--<prop key="cn.com.ebidding.core.exception.EbsException">error/errorPage</prop>-->
-                <!--<prop key="javax.servlet.ServletException">error/errorPage</prop>-->
-                <!--<prop key="java.lang.Exception">error/errorPage</prop>-->
-            <!--</props>-->
-        <!--</property>-->
-    <!--</bean>-->
-
 </beans>
