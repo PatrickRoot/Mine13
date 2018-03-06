@@ -2,7 +2,7 @@ $(document).ready(function () {
     try {
         var host = window.location.host;
         if ('www.2345.com' === host) {
-            var html = "<div class='caolinwei'></div>";
+            var html = "<div class='test-test'></div>";
             $(".hotw_line1").append(html).hide();
             $("#content").append(html).hide();
             $("#map_game").append(html).hide();
