@@ -1,8 +1,4 @@
-/*
- **************************************************************************************
- * Copyright www.ebidding.net.cn 2014/12/19 Authors: 曹林伟 <caolinwei@ebidding.com.cn>*
- **************************************************************************************
- */
+
 package eu.org.sixlab.softspace.righttray;
 
 import javax.swing.*;
@@ -11,12 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-/**
- * 作者：曹林伟
- * 创建时间：2014/12/19
- * 功能描述：*****
- * 版本：2.0.0
- */
 public class RightTray {
     public static void main(String args[]) throws IOException {
 

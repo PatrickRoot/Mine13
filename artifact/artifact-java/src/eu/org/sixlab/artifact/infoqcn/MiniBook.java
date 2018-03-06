@@ -16,9 +16,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-/**
- * 作者:曹林伟 创建时间:2014年11月29日 功能描述： 版本:2.0.0
- */
 public class MiniBook {
     
     private static final String DOMAIN = "http://www.infoq.com";
